@@ -1,0 +1,1022 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,500;0,600;0,700;0,800;0,900;0,1000;1,400&family=Roboto:wght@300;400;500;700;900&display=swap');
+@import './colors';
+@import './variables';
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* FONTS FAMILY
+font-family: 'Nunito', sans-serif;
+font-family: 'Roboto', sans-serif;
+*/
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-style: normal;
+}
+
+h1,
+h2 {
+  font-weight: 800;
+  font-style: normal;
+  font-family: 'Roboto', sans-serif;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  font-style: normal;
+  font-family: 'Roboto', sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input {
+  font-family: 'Nunito', sans-serif;
+  font-style: normal;
+  color: $dark_text;
+  border: none;
+  padding: 0.5rem;
+  outline: none;
+  font-size: inherit;
+
+  &::placeholder {
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    color: $placeholder;
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    @media screen and (min-width: 992px) {
+      font-size: 1rem;
+    }
+  }
+}
+
+/* HER0-NAV-SECTION */
+
+.hero_nav_sec {
+  width: 100%;
+  position: relative;
+  &_inner {
+    background: conic-gradient(
+        from 241.53deg at 5% 100%,
+        #004d99b2 0deg,
+        #004d9900 360deg
+      ),
+      conic-gradient(
+        from 241.53deg at 5% 100%,
+        #28166f6e 0deg,
+        #28166f00 360deg
+      ),
+      url('../svgs/hero_svg.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 55vh;
+    width: 100%;
+    @media screen and (min-width: 576px) {
+      height: 60vh;
+    }
+
+    @media screen and (min-width: 992px) {
+      height: 80vh;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: inherit;
+      height: inherit;
+    }
+  }
+}
+/* --------------------------------------HEADER-------------------------------------- */
+
+header {
+  position: relative;
+  z-index: 200;
+
+  .navbar {
+    width: 100%;
+    background: transparent;
+    z-index: 200;
+    text-transform: capitalize;
+    padding: 0.5rem;
+
+    @media screen and (min-width: 1200px) {
+      padding: 0.8rem 4rem;
+    }
+    @media screen and (min-width: 1400px) {
+      padding: 1rem 6rem;
+    }
+
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+
+      @media screen and (min-width: 992px) {
+        gap: 1.5rem;
+      }
+
+      @media screen and (min-width: 1200px) {
+        gap: 2.5rem;
+      }
+
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1.2rem;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: inherit;
+
+        @media screen and (min-width: 992px) {
+          font-size: 1.4rem;
+        }
+
+        &:hover {
+          color: $secondary-active;
+          font-weight: 600;
+          /* add animation on hover  */
+        }
+        /* ACTIVE */
+        &.active {
+          color: $secondary-active;
+          font-weight: 700;
+        }
+      }
+    }
+
+    &_inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @media screen and (min-width: 992px) {
+        justify-content: space-around;
+      }
+
+      .menu_items,
+      .nav_btn {
+        display: none;
+      }
+      img.nav_logo {
+        width: 100%;
+        max-width: 9rem;
+        height: 100%;
+        @media screen and (min-width: 992px) {
+          max-width: 11rem;
+        }
+      }
+      .toogle_btn {
+        display: block;
+        color: $black;
+        font-size: 2rem;
+        padding: 0 1rem;
+        cursor: pointer;
+        z-index: 100;
+      }
+
+      @media screen and (min-width: 992px) {
+        .menu_items,
+        .nav_btn {
+          display: block;
+        }
+
+        .toogle_btn {
+          display: none;
+        }
+      }
+    }
+  }
+
+  /* DROPDOWN MENU */
+
+  .dropdown_menu {
+    position: absolute;
+    top: -20rem;
+    z-index: 10000;
+    padding: 1.54rem 0;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    overflow: hidden;
+    right: 0;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    @media screen and (min-width: 576px) {
+      width: 300px;
+    }
+    @media screen and (max-width: 992px) {
+      position: fixed;
+    }
+
+    &.open {
+      top: 4.8rem;
+    }
+
+    ul {
+      text-align: center;
+      display: grid;
+      gap: 1rem;
+
+      li {
+        cursor: pointer;
+        text-transform: capitalize;
+        font-weight: 500;
+        color: $primary;
+        font-size: 1.1rem;
+        &:hover {
+          font-weight: 600;
+          color: $secondary;
+        }
+      }
+    }
+
+    @media screen and (min-width: 992px) {
+      display: none;
+    }
+  }
+}
+
+/* --------------------------------------HERO SECTION-------------------------------------- */
+
+.main {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 80%;
+  z-index: 100;
+
+  @media screen and (min-width: 992px) {
+    justify-content: flex-end;
+  }
+  &_inner {
+    height: 100%;
+    display: flex;
+    width: fit-content;
+    z-index: 100;
+    justify-content: baseline;
+    align-items: center;
+  }
+
+  &_right {
+    display: grid;
+    gap: 0.6rem;
+
+    @media screen and (min-width: 992px) {
+      gap: 1.2rem;
+    }
+    &_input {
+      &_sec {
+        width: 100%;
+        @media screen and (min-width: 576px) {
+          width: 90%;
+        }
+
+        .auto_manual {
+          &_sec {
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            width: fit-content;
+            border-radius: 4px 4px 0 0;
+          }
+
+          &_btn {
+            padding: 0.2rem 1.2rem;
+            text-transform: capitalize;
+            font-size: 1rem;
+            color: $primary;
+            background: $secondary;
+            opacity: 0.7;
+            font-weight: 400;
+            cursor: pointer;
+            min-height: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            @media screen and (min-width: 400px) {
+              min-height: 2.5rem;
+            }
+
+            &.active,
+            &:hover {
+              font-size: 1.2rem;
+              font-weight: 900;
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+      background: $white;
+      color: $primary;
+      height: 60%;
+      border-radius: 4px;
+      border-top-left-radius: 0;
+      font-size: 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.3rem;
+
+      input {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* --------------------------------------GET YOU SECTION-------------------------------------- */
+.get_you {
+  &_sec {
+    width: 100%;
+    height: 100%;
+
+    &_inner {
+      padding: 1rem 0;
+      @media screen and (min-width: 992px) {
+        padding: 5.5rem 0;
+      }
+    }
+  }
+
+  &_header {
+    text-align: center;
+    margin-block: 0 0.5rem;
+    @media screen and (min-width: 992px) {
+      margin-block: 0 4rem;
+    }
+  }
+  &_flexbox {
+    &_inner {
+      display: grid;
+      justify-content: center;
+      gap: 2rem;
+      align-items: center;
+
+      @media screen and (min-width: 992px) {
+        display: flex;
+      }
+    }
+  }
+
+  &_box {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    min-height: 20rem;
+    cursor: pointer;
+    box-shadow: $shadow;
+
+    @media screen and (min-width: 992px) {
+      min-height: 40rem;
+    }
+
+    &:hover {
+      box-shadow: $shadow_hover;
+    }
+    &:nth-child(1) {
+      background: $box1_bg;
+    }
+    &:nth-child(2) {
+      background: $box2_bg;
+    }
+    &:nth-child(3) {
+      background: $box3_bg;
+    }
+
+    &_inner {
+      padding: 1.5rem;
+      display: grid;
+      gap: 3rem;
+    }
+
+    &_top {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 100%;
+      img {
+        width: 100%;
+        aspect-ratio: 1/1;
+        animation: animateHero 5s ease-in-out infinite;
+        @media screen and (min-width: 992px) {
+          animation: animateHeroDesktop 5s ease-in-out infinite;
+        }
+      }
+    }
+
+    &_bottom {
+      ul {
+        display: grid;
+        gap: 0.5rem;
+        margin-top: 1rem;
+        li {
+          display: flex;
+          gap: 0.5rem;
+          font-weight: 600;
+          font-size: 0.8rem;
+          @media screen and (min-width: 992px) {
+            font-size: 1rem;
+          }
+          @media screen and (min-width: 1200px) {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* --------------------------------------DRIVING-TEST SECTION-------------------------------------- */
+.driving_test {
+  background: $driving_test_bg;
+  width: 100%;
+  height: 100%;
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+
+  &_inner {
+    @include flex_mixin();
+  }
+
+  &_left {
+    @include flex_img();
+    img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      animation: animateHero 8s ease-in-out infinite;
+      @media screen and (min-width: 992px) {
+        animation: animateHeroDesktop 8s ease-in-out infinite;
+      }
+    }
+  }
+
+  &_right {
+    width: 100%;
+
+    &_inner {
+      display: grid;
+      gap: 1rem;
+
+      ul {
+        display: grid;
+
+        @media screen and (min-width: 576px) {
+          grid-template-columns: auto auto;
+          gap: 0.5rem;
+        }
+
+        li {
+          display: flex;
+          gap: 0.5rem;
+          font-size: 0.8rem;
+          font-weight: 600;
+          letter-spacing: 0.1px;
+          line-height: normal;
+          color: $flex_dark_text;
+
+          @media screen and (min-width: 400px) {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* --------------------------------------WHY-CHOOSE SECTION-------------------------------------- */
+.why_choose {
+  background: $why_choose_bg;
+  width: 100%;
+  height: 100%;
+  min-height: 55vh;
+  display: flex;
+  justify-content: center;
+  margin: 5rem 0;
+
+  @media screen and (min-width: 992px) {
+    min-height: 60vh;
+  }
+
+  &_inner {
+    @include flex_mixin();
+    padding: 2rem 0;
+
+    @media screen and (min-width: 992px) {
+      padding: 0;
+    }
+  }
+
+  &_left {
+    width: 100%;
+
+    &_inner {
+      display: grid;
+      gap: 0.8rem;
+      p {
+        line-height: 2rem;
+      }
+    }
+  }
+
+  &_right {
+    @include flex_img();
+    img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      animation: animateHero 8s ease-in-out infinite;
+      @media screen and (min-width: 992px) {
+        animation: animateHeroDesktop 8s ease-in-out infinite;
+      }
+    }
+  }
+}
+
+/* --------------------------------------READY-FOR SECTION-------------------------------------- */
+.ready_for {
+  &_sec {
+    width: 100%;
+    height: 100%;
+
+    &_inner {
+      padding: 1rem 0;
+      @media screen and (min-width: 992px) {
+        padding: 5.5rem 0;
+      }
+    }
+  }
+
+  &_header {
+    text-align: center;
+    margin-block: 0 0.5rem;
+    @media screen and (min-width: 992px) {
+      margin-block: 0 4rem;
+    }
+  }
+  &_flexbox {
+    &_inner {
+      display: grid;
+      justify-content: center;
+      gap: 1rem;
+      align-items: center;
+
+      @media screen and (min-width: 992px) {
+        gap: 1.5rem;
+        grid-template-columns: auto auto;
+      }
+    }
+  }
+
+  &_box {
+    width: 100%;
+    height: 100%;
+    max-width: 35rem;
+    border-radius: 4px;
+    min-height: 20rem;
+    cursor: pointer;
+    @media screen and (min-width: 992px) {
+      min-height: 28rem;
+    }
+
+    &:hover {
+      box-shadow: $shadow_hover;
+    }
+    &:nth-child(1) {
+      background: $ready_for_box1;
+    }
+    &:nth-child(2) {
+      background: $ready_for_box2;
+    }
+    &:nth-child(3) {
+      background: $ready_for_box3;
+    }
+    &:nth-child(4) {
+      background: $ready_for_box4;
+    }
+
+    &_inner {
+      padding: 0.5rem;
+      display: grid;
+      gap: 0.5rem;
+
+      @media screen and (min-width: 992px) {
+        gap: 1.5rem;
+        padding: 1.5rem;
+      }
+    }
+
+    &_top {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 5rem;
+      @media screen and (min-width: 992px) {
+        max-width: 8rem;
+      }
+
+      img {
+        width: 100%;
+        aspect-ratio: 1/1;
+      }
+    }
+
+    &_bottom {
+      width: 100%;
+      display: grid;
+      gap: 0.5rem;
+
+      @media screen and (min-width: 992px) {
+        gap: 0.8rem;
+      }
+    }
+  }
+}
+
+/*---------------------------TEAM SECTION---------------------------- */
+.team {
+  &_sec {
+    margin: 2rem 0;
+    background: $dark_white;
+    width: 100%;
+
+    &_inner {
+      padding: 1rem;
+      color: $primary;
+
+      .teams_box {
+        &_container {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        &_inner {
+          box-shadow: $shadow_hover;
+          width: fit-content;
+          height: 100%;
+          min-height: 20rem;
+          padding: 0.5rem;
+          background: $white;
+          text-align: center;
+          color: $primary;
+          border-radius: 4px;
+          @media (min-width: 992px) {
+            padding: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  &_box {
+    height: 100%;
+    width: 100%;
+  }
+
+  &_pic {
+    overflow: hidden;
+    border-radius: 4px 4px 0 0;
+    height: 15rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &_name {
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: normal;
+    margin-block: 0.6rem 0;
+
+    @media (min-width: 992px) {
+      font-size: 1.2rem;
+    }
+  }
+
+  &_role {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    @media (min-width: 992px) {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+/* --------------------------------------GALLERY SECTION-------------------------------------- */
+.gallery {
+  &_slide {
+    margin-block: 1rem;
+    &_inner {
+      .img_slider {
+        display: flex;
+        justify-content: center;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+/* --------------------------------------TESTIMONIALS SECTION-------------------------------------- */
+.testimonials {
+  &_sec {
+    background: $why_choose_bg;
+    color: $primary;
+    margin: 3rem 0;
+
+    @media screen and (min-width: 992px) {
+      padding: 2.5rem;
+    }
+
+    &_header {
+      margin-bottom: 1rem;
+
+      @media screen and (min-width: 992px) {
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+
+  &_slides {
+    width: 100%;
+
+    .slides {
+      margin: 1rem 0;
+      border-radius: 0.2rem;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      max-width: 20rem;
+      min-height: 20rem;
+      background: $white;
+      color: $primary;
+      margin: 0 auto;
+      box-shadow: $shadow;
+      padding: 1rem;
+
+      @media screen and (min-width: 992px) {
+        max-width: 35rem;
+        padding: 2rem 2.5rem;
+      }
+      &_inner {
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        @media screen and (min-width: 992px) {
+          display: grid;
+          gap: 1rem;
+          width: 100%;
+          max-width: 100%;
+          justify-content: center;
+        }
+      }
+
+      &_top {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 100%;
+        margin: 0 auto;
+
+        @media screen and (min-width: 992px) {
+          max-width: fit-content;
+        }
+
+        img {
+          width: 5rem;
+          border-radius: 50%;
+          aspect-ratio: 1/1;
+
+          @media screen and (min-width: 992px) {
+            width: 7rem;
+          }
+        }
+      }
+
+      &_bottom {
+        padding: 0.4rem;
+        width: 100%;
+        max-width: 30rem;
+        margin: 0 auto;
+
+        @media screen and (min-width: 992px) {
+          min-width: 100%;
+          padding: 0;
+          margin: 0;
+        }
+        &_header {
+          display: grid;
+          align-items: center;
+          justify-content: center;
+
+          &_dot {
+            background: $primary;
+            width: 0.5rem;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+          }
+        }
+
+        .testimonials {
+          &_role {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0em;
+            text-align: center;
+            max-width: fit-content;
+            margin: 0.5rem auto;
+            border-radius: 4px;
+            background-color: $secondary;
+            color: $primary;
+            padding: 0.2rem;
+            @media screen and (min-width: 992px) {
+              padding: 0.4rem 0.6rem;
+              font-size: 1.2rem;
+            }
+          }
+        }
+
+        &_quotes {
+          font-size: 0.8rem;
+          color: $primary;
+          font-weight: 500;
+          line-height: 1rem;
+          letter-spacing: 0em;
+          text-align: center;
+          width: 100%;
+          max-width: 100%;
+          margin: auto;
+
+          @media screen and (min-width: 992px) {
+            line-height: 1.1rem;
+          }
+          @media screen and (min-width: 1200px) {
+            line-height: 1.2rem;
+            font-size: 1rem;
+          }
+          @media screen and (min-width: 1400px) {
+            line-height: 1.3rem;
+          }
+        }
+      }
+    }
+  }
+
+  &_navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 1rem;
+
+    @media screen and (min-width: 992px) {
+      margin-top: 3rem;
+      gap: 5rem;
+    }
+
+    &_icon {
+      font-size: 1.5rem;
+      color: $primary;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+
+    &_dot {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      inset: -0.2rem 0;
+      gap: 0.5rem;
+
+      @media screen and (min-width: 992px) {
+        gap: 1rem;
+      }
+
+      .dot {
+        cursor: pointer;
+        width: 0.6rem;
+        aspect-ratio: 1/1;
+        border: 1px solid $primary;
+        border-radius: 50%;
+        transition: 0.6s;
+
+        &:hover,
+        &.active {
+          background: $primary-active;
+        }
+      }
+    }
+  }
+}
+
+/* --------------------------------------SPONSORS SECTION-------------------------------------- */
+.sponsors {
+  &_sec {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $sponsors_bg;
+    &_inner {
+      display: grid;
+      grid-template-columns: auto auto;
+      width: 100%;
+      align-items: center;
+      place-items: center;
+      @media screen and (min-width: 576px) {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+      }
+
+      img {
+        max-width: 30%;
+        aspect-ratio: 1/1;
+
+        @media screen and (min-width: 576px) {
+          max-width: 15%;
+        }
+      }
+    }
+  }
+}
+
+/* --------------------------------------FOOTER SECTION-------------------------------------- */
+footer {
+  background: $footer_bg;
+  margin-top: 3rem;
+  .footer_inner {
+    display: grid;
+    justify-content: space-around;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem 0;
+    @media screen and (min-width: 992px) {
+      grid-template-columns: auto auto;
+      padding: 2rem 0;
+      gap: 2rem;
+    }
+
+    ul {
+      li {
+        display: flex;
+        gap: 1rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.1px;
+        line-height: normal;
+        color: $flex_dark_text;
+
+        @media screen and (min-width: 400px) {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
