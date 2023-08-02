@@ -1,65 +1,78 @@
-const toogleBtn = document.querySelector('.toogle_btn');
-const toogleBtnIcon = document.querySelector('.toogle_btn i');
-const menu = document.querySelector('.dropdown_menu');
-const menuListsContainer = document.querySelectorAll('.menu_lists');
-const menuLists = document.querySelectorAll('.menu_lists li');
-const navScroll = document.querySelector('.navbar');
+/* PRE-LOADER FUNCTIONALITY*/
+document.addEventListener("DOMContentLoaded", () => {
+  const preloader = document.querySelector("#preloader_sec");
+  preloader.classList.remove("hidden");
+  preloader.classList.add("preloader");
+
+  void preloader.offsetWidth;
+
+  setTimeout(() => {
+    preloader.classList.add("hidden");
+  }, 6000);
+});
+
+const toogleBtn = document.querySelector(".toogle_btn");
+const toogleBtnIcon = document.querySelector(".toogle_btn i");
+const menu = document.querySelector(".dropdown_menu");
+const menuListsContainer = document.querySelectorAll(".menu_lists");
+const menuLists = document.querySelectorAll(".menu_lists li");
+const navScroll = document.querySelector(".navbar");
 
 /* SLIDES */
-const slides = document.querySelectorAll('.slides');
-const dots = document.querySelectorAll('.dot');
+const slides = document.querySelectorAll(".slides");
+const dots = document.querySelectorAll(".dot");
 
 /* HERO-BTN */
-const autoManualBtn = document.querySelectorAll('.auto_manual_btn');
+const autoManualBtn = document.querySelectorAll(".auto_manual_btn");
 
 /* POP-UP VARIABLE*/
-const popUpSec = document.querySelector('#pop');
-const popUpSec1 = document.querySelector('.pop_up_box1');
-const popUpSec2 = document.querySelector('.pop_up_box2');
-const popUpSec3 = document.querySelector('.pop_up_box3');
-const popUpSec4 = document.querySelector('.pop_up_box4');
-const popUpSec5 = document.querySelector('.pop_up_box5');
+const popUpSec = document.querySelector("#pop");
+const popUpSec1 = document.querySelector(".pop_up_box1");
+const popUpSec2 = document.querySelector(".pop_up_box2");
+const popUpSec3 = document.querySelector(".pop_up_box3");
+const popUpSec4 = document.querySelector(".pop_up_box4");
+const popUpSec5 = document.querySelector(".pop_up_box5");
 
 /* POP-UP FUNCTIONS */
 
 const toggleFadeClass1 = () => {
-  popUpSec1.classList.toggle('fade');
-  popUpSec2.classList.remove('fade');
-  popUpSec3.classList.remove('fade');
-  popUpSec4.classList.remove('fade');
-  popUpSec5.classList.remove('fade');
+  popUpSec1.classList.toggle("fade");
+  popUpSec2.classList.remove("fade");
+  popUpSec3.classList.remove("fade");
+  popUpSec4.classList.remove("fade");
+  popUpSec5.classList.remove("fade");
 };
 const toggleFadeClass2 = () => {
-  popUpSec2.classList.toggle('fade');
-  popUpSec1.classList.remove('fade');
-  popUpSec3.classList.remove('fade');
-  popUpSec4.classList.remove('fade');
-  popUpSec5.classList.remove('fade');
+  popUpSec2.classList.toggle("fade");
+  popUpSec1.classList.remove("fade");
+  popUpSec3.classList.remove("fade");
+  popUpSec4.classList.remove("fade");
+  popUpSec5.classList.remove("fade");
 };
 const toggleFadeClass3 = () => {
-  popUpSec3.classList.toggle('fade');
-  popUpSec1.classList.remove('fade');
-  popUpSec2.classList.remove('fade');
-  popUpSec4.classList.remove('fade');
-  popUpSec5.classList.remove('fade');
+  popUpSec3.classList.toggle("fade");
+  popUpSec1.classList.remove("fade");
+  popUpSec2.classList.remove("fade");
+  popUpSec4.classList.remove("fade");
+  popUpSec5.classList.remove("fade");
 };
 const toggleFadeClass4 = () => {
-  popUpSec4.classList.toggle('fade');
-  popUpSec1.classList.remove('fade');
-  popUpSec2.classList.remove('fade');
-  popUpSec3.classList.remove('fade');
-  popUpSec5.classList.remove('fade');
+  popUpSec4.classList.toggle("fade");
+  popUpSec1.classList.remove("fade");
+  popUpSec2.classList.remove("fade");
+  popUpSec3.classList.remove("fade");
+  popUpSec5.classList.remove("fade");
 };
 const toggleFadeClass5 = () => {
-  popUpSec5.classList.toggle('fade');
-  popUpSec1.classList.remove('fade');
-  popUpSec2.classList.remove('fade');
-  popUpSec3.classList.remove('fade');
-  popUpSec4.classList.remove('fade');
+  popUpSec5.classList.toggle("fade");
+  popUpSec1.classList.remove("fade");
+  popUpSec2.classList.remove("fade");
+  popUpSec3.classList.remove("fade");
+  popUpSec4.classList.remove("fade");
 };
-popUpSec.style.display = 'block';
+popUpSec.style.display = "block";
 setTimeout(() => {
-  popUpSec.style.display = 'none';
+  popUpSec.style.display = "none";
 }, 100000);
 
 setInterval(toggleFadeClass1, 10000);
@@ -80,64 +93,64 @@ setInterval(toggleFadeClass5, 90000);
   </script> */
 
 /* SCROLL-FUNCTIONS */
-window.addEventListener('scroll', () => {
-  navScroll.classList.toggle('scroll_active', window.scrollY > 350);
+window.addEventListener("scroll", () => {
+  navScroll.classList.toggle("scroll_active", window.scrollY > 350);
 });
 
-menuListsContainer.forEach(container => {
-  window.addEventListener('scroll', () => {
-    container.classList.toggle('text_primary', window.scrollY > 350);
+menuListsContainer.forEach((container) => {
+  window.addEventListener("scroll", () => {
+    container.classList.toggle("text_primary", window.scrollY > 350);
   });
 });
 
 /* ACTIVE LINKS */
 const removeActive = () => {
-  menuLists.forEach(link => {
-    link.classList.remove('active');
+  menuLists.forEach((link) => {
+    link.classList.remove("active");
   });
 };
 
-menuLists.forEach(link => {
-  link.addEventListener('click', () => {
+menuLists.forEach((link) => {
+  link.addEventListener("click", () => {
     removeActive();
-    link.classList.add('active');
+    link.classList.add("active");
   });
 });
 
 const removeActiveBtn = () => {
-  autoManualBtn.forEach(btn => {
-    btn.classList.remove('active');
+  autoManualBtn.forEach((btn) => {
+    btn.classList.remove("active");
   });
 };
 
-autoManualBtn.forEach(btn => {
-  btn.addEventListener('click', () => {
+autoManualBtn.forEach((btn) => {
+  btn.addEventListener("click", () => {
     removeActiveBtn();
-    btn.classList.add('active');
+    btn.classList.add("active");
   });
 });
 
 /* NAV-FUNCTIONS */
 toogleBtn.onclick = () => {
-  menu.classList.toggle('open');
+  menu.classList.toggle("open");
 
-  const isOpen = menu.classList.contains('open');
+  const isOpen = menu.classList.contains("open");
 
-  toogleBtnIcon.classList = isOpen ? 'fa fa-times' : 'fa fa-bars';
+  toogleBtnIcon.classList = isOpen ? "fa fa-times" : "fa fa-bars";
 };
 
 const isClose = () => {
-  const isClose = menu.classList.remove('open');
+  const isClose = menu.classList.remove("open");
 
-  toogleBtnIcon.classList = isClose ? 'fa fa-times' : 'fa fa-bars';
+  toogleBtnIcon.classList = isClose ? "fa fa-times" : "fa fa-bars";
 };
 
-document.onclick = e => {
+document.onclick = (e) => {
   if (!toogleBtn.contains(e.target) && !menu.contains(e.target)) {
     isClose();
   }
 };
-document.onscroll = e => {
+document.onscroll = (e) => {
   if (!toogleBtn.contains(e.target) && !menu.contains(e.target)) {
     isClose();
   }
@@ -147,11 +160,11 @@ document.onscroll = e => {
 let slideIndex = 1;
 showSlides(slideIndex);
 
-const plusSlides = n => {
+const plusSlides = (n) => {
   showSlides((slideIndex += n));
 };
 
-const currentSlide = n => {
+const currentSlide = (n) => {
   showSlides((slideIndex = n));
 };
 
@@ -164,11 +177,11 @@ function showSlides(n) {
     slideIndex = slides.length;
   }
   for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = 'none';
+    slides[i].style.display = "none";
   }
   for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace('active', '');
+    dots[i].className = dots[i].className.replace("active", "");
   }
-  slides[slideIndex - 1].style.display = 'block';
-  dots[slideIndex - 1].className += ' active';
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += " active";
 }
