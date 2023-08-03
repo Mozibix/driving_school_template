@@ -1596,12 +1596,12 @@ footer .footer_inner {
   justify-content: space-around;
   gap: 1rem;
   align-items: flex-start;
-  padding: 1rem 0;
+  padding-top: 1rem;
 }
 @media screen and (min-width: 992px) {
   footer .footer_inner {
     grid-template-columns: auto auto;
-    padding: 2rem 0;
+    padding-top: 2rem;
     gap: 2rem;
   }
 }
@@ -1617,5 +1617,21 @@ footer .footer_inner ul li {
 @media screen and (min-width: 400px) {
   footer .footer_inner ul li {
     font-size: 1.2rem;
+  }
+}
+footer .designer_text {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.8rem;
+  line-height: normal;
+}
+@media screen and (min-width: 992px) {
+  footer .designer_text {
+    font-size: 1rem;
   }
 }/*# sourceMappingURL=styles.css.map */
