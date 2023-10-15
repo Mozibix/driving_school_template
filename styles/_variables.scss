@@ -510,31 +510,31 @@
 .animations_up {
   opacity: 0;
   transform: translateY(100px);
-  transition: all 0.7s ease-out;
-  transition-delay: 0.5s;
+  transition: all 0.6s ease-out;
+  transition-delay: 0.4s;
 }
 
 /*  */
 .animations_down {
   opacity: 0;
   transform: translateY(-100px);
-  transition: all 0.7s ease-out;
-  transition-delay: 0.5s;
+  transition: all 0.6s ease-out;
+  transition-delay: 0.4s;
 }
 
 /*  */
 .animations_left {
   opacity: 0;
   transform: translateX(-110px);
-  transition: all 0.6s ease-out;
-  transition-delay: 0.4s;
+  transition: all 0.5s ease-out;
+  transition-delay: 0.3s;
   overflow: hidden;
   &_special {
     @media screen and (min-width: 1400px) {
       opacity: 0;
       transform: translateY(100px);
-      transition: all 0.6s ease-out;
-      transition-delay: 0.4s;
+      transition: all 0.5s ease-out;
+      transition-delay: 0.3s;
     }
   }
 }
@@ -543,7 +543,7 @@
 .animations_right {
   opacity: 0;
   transform: translateX(100px);
-  transition: all 0.6s ease-out;
+  transition: all 0.5s ease-out;
   transition-delay: 0.4s;
 }
 
